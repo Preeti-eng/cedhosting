@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Planet Hosting a Hosting Category Flat Bootstrap Responsive Website Template | Linux Hosting :: w3layouts</title>
+<title>Planet Hosting a Hosting Category Flat Bootstrap Responsive Website Template | Windows Hosting :: w3layouts</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,9 +41,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="container">
 							<div class="linux-grids">
 								<div class="col-md-8 linux-grid">
-								<h2>Linux Hosting</h2>
+								<h2>Windows Hosting</h2>
 								<ul>
-									<li><span>Unlimited </span> Domains, Disk Space, Bandwidth and Email Addresses</li>
+									<li>Disk Space, Bandwidth and Email Addresses</li>
 									<li><span>99.9% uptime </span> with dedicated 24/7 technical support</li>
 									<li><span>Powered by </span> CloudLinux, cPanel (demo), Apache, MySQL, PHP, Ruby & more</li>
 									<li><span>Launch  </span> your business with Rs. 2000* Google AdWords Credit *</li>
@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a href="#">view plans</a>
 								</div>
 								<div class="col-md-4 linux-grid1">
-									<img src="images/linux.png" class="img-responsive" alt=""/>
+									<img src="images/window.png" class="img-responsive" alt=""/>
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -241,7 +241,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        <!-- clients -->
 					<div class="whatdo">
 						<div class="container">
-							<h3>Linux Features</h3>
+							<h3>Windows Features</h3>
 							<div class="what-grids">
 								<div class="col-md-4 what-grid">
 									<div class="what-left">
