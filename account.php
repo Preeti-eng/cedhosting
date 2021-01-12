@@ -41,45 +41,93 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="main-1">
 		<div class="container">
 			<div class="register">
-		  	  <form> 
-				 <div class="register-top-grid">
-					<h3>personal information</h3>
-					 <div>
-						<span>First Name<label>*</label></span>
-						<input type="text"> 
-					 </div>
-					 <div>
-						<span>Last Name<label>*</label></span>
-						<input type="text"> 
-					 </div>
-					 <div>
-						 <span>Email Address<label>*</label></span>
-						 <input type="text"> 
-					 </div>
-					 <div class="clearfix"> </div>
-					   <a class="news-letter" href="#">
-						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
-					   </a>
-					 </div>
-				     <div class="register-bottom-grid">
-						    <h3>login information</h3>
-							 <div>
-								<span>Password<label>*</label></span>
-								<input type="password">
-							 </div>
-							 <div>
-								<span>Confirm Password<label>*</label></span>
-								<input type="password">
-							 </div>
-					 </div>
-				</form>
-				<div class="clearfix"> </div>
-				<div class="register-but">
-				   <form>
-					   <input type="submit" value="submit">
-					   <div class="clearfix"> </div>
-				   </form>
-				</div>
+
+			<form style="padding:5%;">
+			<div class="alert alert-primary" role="alert">
+			<p id="error"></p>  
+			</div>
+        <!-- <div class="form-row" > -->
+        <div  id="form1" >
+            <div class="form-group col-md-12">
+                    <label for="inputEmail4">Email Address<span style="color:red;">*</span></label>
+                    <input type="email" class="form-control" id="email"  name="email">
+            </div>
+
+            <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-primary" id="se" name="sub" onclick="sendMail()">Send OTP</button>
+            </div>
+        </div>
+        <div  id="form" style="display:none;" >
+            <div id="form" class="form-group col-md-12" >
+                <label for="inputEmail4">Enter OTP</label>
+                <input type="number" class="form-control" id="otp"  name="otp">
+            </div> 
+            <div class="form-group col-md-12">
+                <button type="button" class="btn btn-primary" name="subm" id="so" onclick="sendotp()">Submit</button>
+            </div>
+        </div>
+       
+        
+        
+         <div  id="sms" style="display:none;">
+            <div class="form-group col-md-12">
+                    <label>Enter Mobile Number<span style="color:red;">*</span></label>
+                    <input type="number" class="form-control" id="mobile"  name="mobile">
+            </div>
+
+            <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-primary" id="se1" name="submit" onclick="sendSms()">Send OTP</button>
+            </div>
+        </div>
+        <div  id="sms1" style="display:none;">
+            <div id="form" class="form-group col-md-12" >
+                <label>Enter OTP</label>
+                <input type="number" class="form-control" id="otp1"  name="otp1">
+            </div> 
+            <div class="form-group col-md-12">
+                <button type="button" class="btn btn-primary" name="submit" id="ot" onclick="smsotp()">Submit</button>
+            </div>
+
+            <p id="s"></p>
+        
+    </div>
+
+
+    <div id="sh" style="display:none;">
+	
+                
+                <div class="form-group col-md-12">
+                    <label>Name<span style="color:red;">*</span></label>
+                    <input type="text" class="form-control" id="name"  name="name" onfocusout ="nameValidate()">
+                </div>
+                
+                
+                <div class="form-group col-md-12">
+                    <label for="exampleInputPassword1">Password<span style="color:red;">*</span></label>
+                    <input type="password" class="form-control" id="pass" placeholder="Password" onfocusout ="passValidate()">
+                </div>
+                
+				<div class="form-group col-md-12">
+					<lable><b>Security Question</b><span style="color:red;">*</span></lable><br>
+					<select id="question" name="question"> 
+					<option value="Please select security question" selected="selected" disabled="disabled">Please select security question</option>
+					<option value="What was your childhood nickname?">What was your childhood nickname?</option>
+					<option value="What is the name of your favourite childhood friend?">What is the name of your favourite childhood friend?</option>
+					<option value="What was your favourite place to visit as a child?">What was your favourite place to visit as a child?</option>
+					<option value="What was your dream job as a child?">What was your dream job as a child?</option>
+					<option value="What is your favourite teacher's nickname?">What is your favourite teacher's nickname?</option>
+					</select>   
+					</div>
+					<div class="form-group col-md-12">
+					<label>Answer<span style="color:red;">*</span></label>
+					<input type="text" class="form-control" id="answer"  name="answer"  onfocusout ="ansValidate()">
+            	</div>
+				<div class="form-group col-md-12">
+                    <button type="button" class="btn btn-primary" id="signUp">Sign Up</button>
+                </div>
+			</div>
+		</form>
+
 		   </div>
 		 </div>
 	</div>
@@ -90,5 +138,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!---footer--->
 				<?php include "footer.php"?>
 			<!---footer--->
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script type="text/javascript" src="js/validate.js"></script>
+	
 </body>
 </html>
