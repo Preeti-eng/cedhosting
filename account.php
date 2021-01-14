@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="register">
 
 			<form style="padding:5%;">
-			<div class="alert alert-primary" role="alert">
+			<div class="alert alert-danger" role="alert">
 			<p id="error"></p>  
 			</div>
         <!-- <div class="form-row" > -->
@@ -141,6 +141,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 			<script type="text/javascript" src="js/validate.js"></script>
-	
+
 </body>
 </html>

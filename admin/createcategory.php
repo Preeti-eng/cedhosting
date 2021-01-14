@@ -1,28 +1,14 @@
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
 
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
-
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <?php
 include "header.php";
 ?>
-  <!-- Main content -->
+ 
   <div class="main-content" id="panel">
-    <!-- Topnav -->
+   
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Search form -->
+        
           <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
             <div class="form-group mb-0">
               <div class="input-group input-group-alternative input-group-merge">
@@ -36,10 +22,10 @@ include "header.php";
               <span aria-hidden="true">×</span>
             </button>
           </form>
-          <!-- Navbar links -->
+         
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
-              <!-- Sidenav toggler -->
+            
               <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                 <div class="sidenav-toggler-inner">
                   <i class="sidenav-toggler-line"></i>
@@ -58,11 +44,11 @@ include "header.php";
                 <i class="ni ni-bell-55"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
-                <!-- Dropdown header -->
+               
                 <div class="px-3 py-3">
                   <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
                 </div>
-                <!-- List group -->
+                
                 <div class="list-group list-group-flush">
                   <a href="#!" class="list-group-item list-group-item-action">
                     <div class="row align-items-center">
@@ -86,7 +72,7 @@ include "header.php";
                   <a href="#!" class="list-group-item list-group-item-action">
                     <div class="row align-items-center">
                       <div class="col-auto">
-                        
+                       
                         <img alt="Image placeholder" src="assets/img/theme/team-2.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
@@ -143,7 +129,7 @@ include "header.php";
                   <a href="#!" class="list-group-item list-group-item-action">
                     <div class="row align-items-center">
                       <div class="col-auto">
-                      
+                       
                         <img alt="Image placeholder" src="assets/img/theme/team-5.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
@@ -253,7 +239,7 @@ include "header.php";
         </div>
       </div>
     </nav>
-   
+  
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
         <div class="header-body">
@@ -284,9 +270,9 @@ include "header.php";
         </div>
     </div>
 </div>
-   
+    
     <div class="container mt--8 pb-5">
-      
+     
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8">
           <div class="card bg-secondary border-0">
@@ -321,23 +307,17 @@ include "header.php";
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Product Name" type="text" id="productname">
+                    <input class="form-control" type="text" id="productname" placeholder="Product Name">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative">
                       <div class="input-group-prepend">
-                          <textarea class="editor form-group link"  placeholder="HTML" name="editor"></textarea>
+                          <textarea  name="editor" id="link" placeholder="Link"></textarea>
                       </div>
                     </div>
                   </div>
-                <div class="row my-4">
-                  <div class="col-12">
-                    <div class="custom-control custom-control-alternative custom-checkbox">
-                      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                    </div>
-                  </div>
-                </div>
+                
                 <div class="text-center">
                   <button type="button" class="btn btn-primary mt-4" id="createcategory">Create Category</button>
                 </div>
@@ -348,15 +328,11 @@ include "header.php";
       </div>
 
 
-
-
-
-
       <div class="row">
         <div class="col-xl-12">
           <div class="card">
             <div class="table-responsive">
-             
+              
               <table class="table align-items-center table-flush" id="showProduct">
                 <thead class="thead-light">
                     <tr>
@@ -375,7 +351,7 @@ include "header.php";
       </div>
 
 <div class="col-md-4">
-   
+    
     <div class="modal fade" id="exampleModalSignUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
@@ -431,7 +407,7 @@ include "header.php";
                   <label class="mr-sm-2" for="inlineFormCustomSelect">Html</label>
                   <div class="input-group input-group-merge input-group-alternative">
                       <div class="input-group-prepend">
-                          <textarea class="editor form-group" placeholder="html" id="link-update"></textarea>
+                          <textarea id="link-update"></textarea>
                       </div>
                     </div>
                   </div>
@@ -459,51 +435,9 @@ include "header.php";
 
 <!--  -->
   <script>
-  // $('#updatecategory').click(function(){
-  //   var productname=($('#productname-update').val()).trim();
-  //   var link=($('#link-update').val()).trim();
-  //   var availability=$('#availability-update').val();
-  //   var categoryid=$('#category-id-update').val();
-  //   var regproductname=/^(?![0-9]*$)([a-zA-Z]+\s?)*([0-9]+\.?)*$/;
-  //   if (availability=="Choose..." || productname=="") {
-  //     alert('please fill product name and availibility');
-  //   }
-  //   else if (!(productname.match(regproductname))) {
-  //     alert("please enter valid product name");
-  //   }
-  //   else if(!isNaN(productname)){
-  //     alert('product name can not be all numbers');
-  //   }
-  //   else {
-  //     $.ajax({
-  //       url: "handlerequest.php",
-  //       method: "post",
-  //       data: {
-  //         productname: productname,
-  //         link: link,
-  //         availability: availability,
-  //         id: categoryid,
-  //         updatecategory: true
-  //       },
-  //       success: function(msg){
-  //         if (msg){
-  //           alert("Category Successfully Updated");
-  //           location.reload();
-  //         }
-  //         else {
-  //           alert("failed updation");
-  //         }
-         
-  //       },
-  //       error: function(){
-  //         alert('Update Failed');
-  //       }
-  //     });
-  //   }
-  // });
-    $('#createcategory').click(function(){
+  $('#createcategory').click(function(){
       var productname=($('#productname').val()).trim();
-      var link=($('.link').val()).trim();
+      var link=($('#link').val()).trim();
       var regproductname=/^(?![0-9]*$)([a-zA-Z]+\s?)*([0-9]+\.?)*$/;
       if (productname=="" || !(productname.match(regproductname))) {
         alert("please enter valid product name");
@@ -518,8 +452,8 @@ include "header.php";
             productadd:true
           },
           success:function(msg){
-            if (msg=="Duplicate Category Name is Not Allowed") {
-              alert("Duplicate Category Name is Not Allowed");
+            if (msg=="Duplicate Category Name") {
+              alert("Duplicate Category Name");
             } else {
               alert("Subcategory Added successfully");
               location.reload();
@@ -532,6 +466,48 @@ include "header.php";
         });
       }
     });
+    $('#updatecategory').click(function(){
+    var productname=($('#productname-update').val()).trim();
+    var link=($('#link-update').val()).trim();
+    var availability=$('#availability-update').val();
+    var categoryid=$('#category-id-update').val();
+    var regproductname=/^(?![0-9]*$)([a-zA-Z]+\s?)*([0-9]+\.?)*$/;
+    if (availability=="Choose..." || productname=="") {
+      alert('please fill product name and availibility');
+    }
+    else if (!(productname.match(regproductname))) {
+      alert("please enter valid product name");
+    }
+    else if(!isNaN(productname)){
+      alert('product name can not be all numbers');
+    }
+    else {
+      $.ajax({
+        url: "handlerequest.php",
+        method: "post",
+        data: {
+          productname: productname,
+          link: link,
+          availability: availability,
+          id: categoryid,
+          updatecategory: true
+        },
+        success: function(msg){
+          if (msg){
+            alert("Category Successfully Updated");
+            location.reload();
+          }
+          else {
+            alert("failed updation");
+          }
+         
+        },
+        error: function(){
+          alert('Update Failed');
+        }
+      });
+    }
+  });
     $(document).ready(function() {
       showProduct();
     });
@@ -576,7 +552,7 @@ include "header.php";
           else {
             var productname=msg['prod_name'];
             $('#productname-update').val(productname);
-            var link=msg['html'];
+            var link=msg['link'];
             $('#link-update').val(link);
             var categoryid=msg['id'];
             $('#category-id-update').val(categoryid);

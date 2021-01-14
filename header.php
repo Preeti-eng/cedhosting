@@ -65,10 +65,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
 									<ul class="dropdown-menu">
-										<li><a href="linuxhosting.php">Linux hosting</a></li>
-										<li><a href="wordpresshosting.php">WordPress Hosting</a></li>
-										<li><a href="windowshosting.php">Windows Hosting</a></li>
-										<li><a href="cmshosting.php">CMS Hosting</a></li>
+									<?php
+										require 'db.php';
+										$sql = "SELECT * FROM tbl_product";
+										$result = mysqli_query($conn,$sql) or die("fail");
+										while($row = mysqli_fetch_assoc($result)){  
+											if($row['prod_parent_id']==1){
+									 ?>
+								<li value="<?php //echo $row['name'];?>"><?php echo $row['prod_name'];?></li>
+											
+									<?php
+									
+									   
+									}
+								  }
+								  		// <li><a href="linuxhosting.php">Linux hosting</a></li>
+										// <li><a href="wordpresshosting.php">WordPress Hosting</a></li>
+										// <li><a href="windowshosting.php">Windows Hosting</a></li>
+										// <li><a href="cmshosting.php">CMS Hosting</a></li>
+									?>	
 									</ul>			
 								</li>
 								<li><a href="codes.php">Pricing</a></li>

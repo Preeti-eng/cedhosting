@@ -102,7 +102,7 @@ $actual_link = $_SERVER["PHP_SELF"];
           </li>
           <ul class="navbar-nav sub-menu collapse" id="products">
             <li class="nav-item">
-              <a class="nav-link" href="createcategor.php">
+              <a class="nav-link" href="createcategory.php">
                 <i class="ni ni-planet text-orange"></i>
                 <span class="nav-link-text">Create Category</span>
               </a>

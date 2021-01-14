@@ -1,3 +1,4 @@
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$   Register     $$$$$$$$$$$$$$$$$$$$$$$44
 function sendMail(){
     var email =  document.getElementById("email").value;
     var reg =/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -204,4 +205,20 @@ function ansValidate(){
                       error.textContent = "";
                   }
 }
+
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$   login   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
    
+// $('#submit').click(function() {
+//     var email = $('#email').val();
+//     var password = $('#password').val();
+    
+//     $.ajax({
+//         type:"POST",
+//         url:"php.php",
+//         data:{
+//             email:email,password:password},
+//         success:function(res){
+//             alert(res);
+//            // window.location.href = "";
+        
+//         }
