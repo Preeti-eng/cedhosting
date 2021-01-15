@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -85,12 +88,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										// <li><a href="cmshosting.php">CMS Hosting</a></li>
 									?>	
 									</ul>			
-								</li>
+								
 								<li><a href="codes.php">Pricing</a></li>
 								<li><a href="codes.php">Blog</a></li>
 								<li><a href="contact.php">Contact</a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"  style="font-size:20px;"></i></a></li>
-                                <li><a href="login.php">Login</a></li>
+                               
+								  <?php 
+								  	if (!isset($_SESSION['user'])) { ?>
+										 <li><a href="login.php">Login</a></li>
+									 <?php }else{ ?>
+										<li><a href="logout.php">Logout</a></li>
+										<?php } ?>
                             </ul>
 									  
 						</div><!-- /.navbar-collapse -->

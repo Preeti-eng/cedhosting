@@ -44,17 +44,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="col-md-6 login-right">
 									<h3>registered</h3>
 									<p>If you have an account with us, please log in.</p>
-									<form action="php.php" method="POST">
+									<form>
 									  <div>
 										<span>Email Address<label>*</label></span>
-										<input type="text" name="name"> 
+										<input type="text" name="name" id="email"> 
 									  </div>
 									  <div>
 										<span>Password<label>*</label></span>
-										<input type="password" name="pass"> 
+										<input type="password" name="pass" id="password"> 
 									  </div>
 									  <a class="forgot" href="#">Forgot Your Password?</a>
-									  <input type="submit" value="Login" name="submit">
+									  <input type="button" value="Login" name="submit" id="submit">
 									</form>
 									
 								</div>	
@@ -68,5 +68,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!---footer--->
 				<?php include "footer.php"?>
 			<!---footer--->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script type="text/javascript" src="js/validate.js"></script>
+    <script>
+ $('#submit').click(function() {
+    var email = $('#email').val();
+    var password = $('#password').val();
+    
+    $.ajax({
+        type:"POST",
+        url:"log.php",
+        data:{
+            email:email,password:password},
+        success:function(res){
+        //    console.log(res);
+            if(res == 0){
+                alert("Incorrect id or pass");
+          
+            }
+            else if(res == 1){
+                alert("Welcome Admin");
+            window.location.href = "admin/index.php";
+            }
+            else if(res == 2){
+                alert("Welcome User");
+           // window.location.href = "";
+		   window.location.href = "index.php";
+            }
+            else if(res == 3){
+                alert("Block By Admin");
+           // window.location.href = "";
+            }
+         }
+    });
+ 
+});
+    </script>
 </body>
 </html>

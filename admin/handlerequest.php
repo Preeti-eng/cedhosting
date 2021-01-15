@@ -48,5 +48,18 @@ if (isset($_POST['updatecategory'])) {
         echo false;
     }
 }
+if (isset($_POST['productadd'])) {
+    $productname=$_POST['productname'];
+    $link=$_POST['link'];
+    $duplicatecheck=$tbl->duplicateCategoryCheck($productname);
+    if ($duplicatecheck) {
+        echo "Duplicate Category Name is Not Allowed";
+    } else {
+        $data=$tbl->insertProductBYCategory($productname, $link);
+        echo true;
+    }
+
+}
+
 
 ?>

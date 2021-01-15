@@ -204,7 +204,7 @@ include "header.php";
                     <img alt="Image placeholder" src="assets/img/theme/user-avatar.png">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold">Hello, <?php echo(isset($_SESSION['admin'])) ? $_SESSION['admin'][2]: "Admin" ?></span>
+                    <span class="mb-0 text-sm  font-weight-bold">Hello, <?php echo(isset($_SESSION['admin'])) ? $_SESSION['admin']['name']: "Admin" ?></span>
                   </div>
                 </div>
               </a>
