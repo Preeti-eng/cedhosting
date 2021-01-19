@@ -1,3 +1,7 @@
+<?php
+session_start();
+$price = 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +10,22 @@
     <title>Document</title>
 </head>
 <body>
+<form>
+<?php
+for ($i=0;$i<count($_SESSION['cartdata']);$i++) {
+    
+   $price+=$price+ ($_SESSION['cartdata'][$i][2]);
+}  
+?>
+<input type="hidden" id="rupee" value="<?php echo $price ?>">
+</form>
     
 <div id="pay">
 
 </div>
 <script src="https://www.paypal.com/sdk/js?client-id=AYpIp_jxv9MeuP42ECvnNZcn0XrcWwnbKLUhPQzKQPnbQhhXPuvCk8QxMpkwEcwvKnYjB_Sd73mFUr3I&currency=INR"></script>
 <script>
+var rupee = document.getElementById("rupee").value;
 paypal.Buttons({
     style : {
         color: 'blue',
@@ -21,7 +35,7 @@ paypal.Buttons({
         return actions.order.create({
             purchase_units : [{
                 amount: {
-                    value: '1000'
+                    value:rupee
                 }
             }]
         });
