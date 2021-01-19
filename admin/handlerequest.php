@@ -60,6 +60,62 @@ if (isset($_POST['productadd'])) {
     }
 
 }
-
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+if (isset($_GET['cartdata'])) {
+    $arr['data']=array();
+    if (isset($_SESSION['cartdata'])) { 
+        $cartdata=$_SESSION['cartdata'];
+        for ($i=0;$i<count($cartdata);$i++) {
+            $arr['data'][]=$cartdata[$i];
+        }
+    }
+    echo json_encode($arr);
+}
+if (isset($_POST['addtocart'])) {
+    $temp=true;
+    $prodid=$_POST['prodid'];
+    if (!isset($_SESSION['cartdata'])) {
+        $_SESSION['cartdata']=array();
+    }
+    $cartdata=$_SESSION['cartdata'];
+    for ($i=0;$i<count($cartdata);$i++) {
+        if ($cartdata[$i][0]==$prodid) {
+            $_SESSION['cartdata'][$i][4]+=1;
+            $temp=false;
+        }
+    }
+    if ($temp==true) {
+        $data=$tbl->addToCart($prodid);
+        $_SESSION['cartdata'][]=[$data['prod_id'], $data['prod_name'], $data['mon_price'], $data['annual_price'], 1, "<a href='javascript:void(0)' data-id=".$data['prod_id']." id='deletecartproduct'><i class='fa fa-trash' aria-hidden='true'></i></a>"];
+    }
+    print_r($_SESSION['cartdata']);
+    // print_r($data);
+}
+if (isset($_POST['deletecartproduct'])) {
+    $prodid=$_POST['prodid'];
+    $cartdata=$_SESSION['cartdata'];
+    for ($i=0;$i<count($cartdata);$i++) {
+        if ($cartdata[$i][0]==$prodid) {
+            unset($_SESSION['cartdata'][$i]);
+            $_SESSION['cartdata']=array_values($_SESSION['cartdata']);
+            break;
+        }
+    }
+}
+if (isset($_POST['checkout'])) {
+    if (isset($_SESSION['user'])) {
+        if (isset($_SESSION['cartdata'])) {
+            if (count($_SESSION['cartdata'])==0) {
+                echo "no items in cart";
+            } else {
+                echo count($_SESSION['cartdata'])." item in the cart";
+            }
+        }
+    } else {
+        echo "refer to login page";
+    }
+    
+}
+   
 
 ?>

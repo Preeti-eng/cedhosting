@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	include_once 'admin/tbl_product.php';
+    $product=new tbl_product();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -68,31 +70,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
 									<ul class="dropdown-menu">
-									<?php
-										require 'db.php';
-										$sql = "SELECT * FROM tbl_product";
-										$result = mysqli_query($conn,$sql) or die("fail");
-										while($row = mysqli_fetch_assoc($result)){  
-											if($row['prod_parent_id']==1){
-									 ?>
-								<li value="<?php //echo $row['name'];?>"><?php echo $row['prod_name'];?></li>
-											
-									<?php
-									
-									   
-									}
-								  }
-								  		// <li><a href="linuxhosting.php">Linux hosting</a></li>
-										// <li><a href="wordpresshosting.php">WordPress Hosting</a></li>
-										// <li><a href="windowshosting.php">Windows Hosting</a></li>
-										// <li><a href="cmshosting.php">CMS Hosting</a></li>
-									?>	
+									 <?php
+                            				$data=$product->getSubCategoryNav();
+                            					if ($data!=false) {
+                                				for ($i=0;$i<count($data);$i++) {
+                                   			 echo '<li ><a href="catpage.php?id='.$data[$i]['id'].'">'.$data[$i]['prod_name'].'</a></li>';
+                               			 }
+                           				 }
+                           			 ?>
 									</ul>			
 								
-								<li><a href="codes.php">Pricing</a></li>
-								<li><a href="codes.php">Blog</a></li>
+								<li><a href="pricing.php">Pricing</a></li>
+								<li><a href="blog.php">Blog</a></li>
 								<li><a href="contact.php">Contact</a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"  style="font-size:20px;"></i></a></li>
+								<li><a href="cart.php"><i class="fa fa-shopping-cart"><span class="badge badge-secondary"><?php if (isset($_SESSION['cartdata'])){echo count($_SESSION['cartdata']);}else {echo 0;}?></span></a></i></li>
                                
 								  <?php 
 								  	if (!isset($_SESSION['user'])) { ?>

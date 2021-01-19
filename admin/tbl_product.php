@@ -142,7 +142,97 @@ public function showProductsBYCategory()
         return json_encode($arr);
     
     }
+     public function getCatPageData($id)
+    {
+        $sql="SELECT `tbl_product`.*,`tbl_product_description`.* FROM tbl_product JOIN tbl_product_description ON `tbl_product`.`id` = `tbl_product_description`.`prod_id` WHERE `tbl_product`.`prod_parent_id`='$id'";
+        $data=$this->conn->query($sql);            
+        if ($data->num_rows>0) {
+            $arr=array();
+            while ($row=$data->fetch_assoc()) {
+                if ($row['prod_available']=='0') {
+                    continue;
+                } else {
+                    $available="available";
+                }
+                $decoded_description=json_decode($row['description']);
+                $webspace=$decoded_description->{'webspace'};
+                $bandwidth=$decoded_description->{'bandwidth'};
+                $freedomain=$decoded_description->{'freedomain'};
+                $languagetechnology=$decoded_description->{'languagetechnology'};
+                $mailbox=$decoded_description->{'mailbox'};
+                $arr[]=array(
+                    "prod_id"=>$row['prod_id'],
+                    "sku"=>$row['sku'],
+                    "mon_price"=>$row['mon_price'],
+                    "annual_price"=>$row['annual_price'],
+                    "prod_parent_id"=>$row['prod_parent_id'],
+                    "prod_name"=>$row['prod_name'],
+                    "link"=>$row['link'],
+                    "available"=>$available,
+                    "prod_launch_date"=>$row['prod_launch_date'],
+                    "webspace"=>$webspace,
+                    "bandwidth"=>$bandwidth,
+                    "freedomain"=>$freedomain,
+                    "languagetechnology"=>$languagetechnology,
+                    "mailbox"=>$mailbox
+                );
+            }
+            return $arr;
+        }
+        return false;
+    }
+    public function getPageHeading($id) {
+        $sql="SELECT * FROM `tbl_product` WHERE `id`='$id'";
+        $data=$this->conn->query($sql);
+        if ($data->num_rows>0) {
+            return $data->fetch_assoc();
+        } else {
+            return false;
+        }
+       
+    }
 
+    
+    public function addToCart($prodid)
+    {
+        $sql="SELECT `tbl_product`.*,`tbl_product_description`.* FROM tbl_product JOIN tbl_product_description ON `tbl_product`.`id` = `tbl_product_description`.`prod_id` WHERE `tbl_product`.`id`='$prodid'";
+        $data=$this->conn->query($sql);            
+        if ($data->num_rows>0) {
+            $arr=array();
+            while ($row=$data->fetch_assoc()) {
+                if ($row['prod_available']=='0') {
+                    continue;
+                } else {
+                    $available="available";
+                }
+                $decoded_description=json_decode($row['description']);
+                $webspace=$decoded_description->{'webspace'};
+                $bandwidth=$decoded_description->{'bandwidth'};
+                $freedomain=$decoded_description->{'freedomain'};
+                $languagetechnology=$decoded_description->{'languagetechnology'};
+                $mailbox=$decoded_description->{'mailbox'};
+                $arr=array(
+                    "prod_id"=>$row['prod_id'],
+                    "sku"=>$row['sku'],
+                    "mon_price"=>$row['mon_price'],
+                    "annual_price"=>$row['annual_price'],
+                    "prod_parent_id"=>$row['prod_parent_id'],
+                    "prod_name"=>$row['prod_name'],
+                    "link"=>$row['link'],
+                    "available"=>$available,
+                    "prod_launch_date"=>$row['prod_launch_date'],
+                    "webspace"=>$webspace,
+                    "bandwidth"=>$bandwidth,
+                    "freedomain"=>$freedomain,
+                    "languagetechnology"=>$languagetechnology,
+                    "mailbox"=>$mailbox
+                );
+            }
+            return $arr;
+        }
+        return false;
+    }
+    
  
 }
    
